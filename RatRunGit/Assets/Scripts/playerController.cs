@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class playerController : MonoBehaviour
 {
     public float speed = 1f;
+    public float lockedPosition = 0f;
     public Rigidbody2D rBody;
 
    
@@ -25,6 +26,9 @@ public class playerController : MonoBehaviour
     void Update()
     {
         rBody.AddForce(directionOfForce);
+
+        //prevents rotation of the game object casued by the force.
+        transform.rotation = Quaternion.Euler(lockedPosition, lockedPosition, lockedPosition);
     }
     
 
